@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  node0:
+    container_name: vcity-node0
+    image: vcity/node
+    command:
+      - "./setup_genesis.sh && ./start.sh"
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:26657/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - "26556:26556"
+      - "26657:26657"
+      - "9090:9090"
+      - "1317:1317"
+      - "8545:8545"
