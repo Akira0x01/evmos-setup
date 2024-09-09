@@ -12,9 +12,19 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    networks:
+      vcitynet:
+        ipv4_address: 192.167.10.2
     ports:
       - "26556:26556"
       - "26657:26657"
       - "9090:9090"
       - "1317:1317"
       - "8545:8545"
+networks:
+  vcitynet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.167.10.0/26

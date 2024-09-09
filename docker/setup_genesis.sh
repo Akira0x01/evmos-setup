@@ -8,7 +8,7 @@ fi
 DENOM="vcity"
 
 CHAIN="vcitychain"
-CHAINID="$CHAIN"_20240904-1
+CHAINID="$CHAIN"_2023825-1
 
 CHAIND="evmosd"
 

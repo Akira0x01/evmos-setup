@@ -8,13 +8,14 @@ fi
 DENOM="vcity"
 
 CHAIN="vcitychain"
-CHAINID="$CHAIN"_20240904-1
+CHAINID="$CHAIN"_2023825-1
 CHAIND="evmosd"
 
 DATA_DIR=$(pwd)/build/vcity
 CONFIG=$DATA_DIR/config/config.toml
 APP_CONFIG=$DATA_DIR/config/app.toml
 
+sed -i 's/^seeds = .*/seeds = ""/' $CONFIG
 sed -i 's/prometheus = false/prometheus = true/g' $CONFIG
 sed -i 's/enable-indexer = false/enable-indexer = true/g' $APP_CONFIG
 perl -i -0pe 's/# Enable defines if the API server should be enabled.\nenable = false/# Enable defines if the API server should be enabled.\nenable = true/' $APP_CONFIG
