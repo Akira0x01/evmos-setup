@@ -23,6 +23,7 @@ sed -i.bak "s/aevmos/$DENOM/g" $APP_CONFIG
 
 # make sure the localhost IP is 0.0.0.0
 sed -i 's/pprof_laddr = "localhost:6060"/pprof_laddr = "0.0.0.0:6060"/g' "$CONFIG"
+sed -i 's|^laddr = "tcp://127\.0\.0\.1:26657"|laddr = "tcp://0\.0\.0\.0:26657"|' "$CONFIG"
 sed -i 's/127.0.0.1/0.0.0.0/g' "$APP_CONFIG"
 sed -i 's/localhost/0.0.0.0/g' "$APP_CONFIG"
 
